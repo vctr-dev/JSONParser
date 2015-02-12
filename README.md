@@ -17,7 +17,7 @@ Just save [JSONParser.swift](https://raw.githubusercontent.com/geekveek/JSONPars
 Contents of jsonDict.json
 <pre><code>
 {
-  "Some Key":"Hi there. I'm stored in some key",
+  "Some Key":"Hi there. I'm stored in some key"
 }
 </code></pre>
 
