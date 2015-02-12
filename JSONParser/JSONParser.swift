@@ -30,32 +30,40 @@
 import Foundation
 infix operator >>> {associativity left precedence 100}
 
-func >>> (data:NSData, key:String) -> AnyObject? {
-    if let jsonDict = getJsonData(data) as? NSDictionary{
-        return jsonDict.objectForKey(key)
+func >>> (dictionary:AnyObject?, key:String) -> AnyObject?{
+    if let dic:NSDictionary = dictionary as? NSDictionary{
+        return dic.objectForKey(key)
     }else{
-        println("JSONParser: data >>> key did not detect dictionary.\nKey:\(key)\n")
+        println("JSONParser: dictionary >>> key did not detect dictionary.\nDictionary:\(dictionary)\nKey:\(key)\n")
         return nil
     }
 }
 
-func >>> (data:NSData, index:Int) -> AnyObject?{
-    if let jsonArr = getJsonData(data) as? NSArray{
-        return jsonArr.objectAtIndex(index)
+func >>> (array:AnyObject?, index:Int) -> AnyObject?{
+    if let arr:NSArray = array as? NSArray{
+        if (index>arr.count-1 || index<0) {
+            println("JSONParser: data >>> index exceeded maximun array index.\nIndex:\(index)\n")
+            return nil
+        }else{
+            return arr.objectAtIndex(index)
+        }
     }else{
-        println("JSONParser: data >>> index did not detect array.\nIndex:\(index)\n")
+        println("JSONParser: array >>> index did not detect array.\nArray:\(array)\nIndex:\(index)\n")
         return nil
     }
+}
+
+func >>> (data:NSData, key:String) -> AnyObject? {
+    return getJsonData(data) >>> key
+}
+
+func >>> (data:NSData, index:Int) -> AnyObject?{
+    return getJsonData(data) >>> index
 }
 
 func >>> (opData:NSData?, key:String) -> AnyObject? {
     if let data = opData{
-        if let jsonDict = getJsonData(data) as? NSDictionary{
-            return jsonDict.objectForKey(key)
-        }else{
-            println("JSONParser: data >>> key did not detect dictionary.\nKey:\(key)\n")
-            return nil
-        }
+        return data >>> key
     }else{
         return nil
     }
@@ -63,37 +71,8 @@ func >>> (opData:NSData?, key:String) -> AnyObject? {
 
 func >>> (opData:NSData?, index:Int) -> AnyObject?{
     if let data = opData{
-        if let jsonArr = getJsonData(data) as? NSArray{
-            if (index>jsonArr.count-1 || index<0) {
-                println("JSONParser: data >>> index exceeded maximun array index.\nIndex:\(index)\n")
-                return nil
-            }else{
-                return jsonArr.objectAtIndex(index)
-            }
-        }else{
-            println("JSONParser: data >>> index did not detect array.\nIndex:\(index)\n")
-            return nil
-        }
+        return data >>> index
     }else{
-        return nil
-    }
-}
-
-
-func >>> (dictionary:AnyObject?, key:String) -> AnyObject?{
-    if let dic:NSDictionary = dictionary as? NSDictionary{
-        return dic.objectForKey(key)
-    }else{
-        println("JSONParser: dictionary >>> key did not detect dictionary or key.\nDictionary:\(dictionary)\nKey:\(key)\n")
-        return nil
-    }
-}
-
-func >>> (array:AnyObject?, index:Int) -> AnyObject?{
-    if let arr:NSArray = array as? NSArray{
-        return arr.objectAtIndex(index)
-    }else{
-        println("JSONParser: array >>> index did not detect array or index.\nArray:\(array)\nIndex:\(index)\n")
         return nil
     }
 }
