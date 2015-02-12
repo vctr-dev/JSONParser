@@ -64,7 +64,12 @@ func >>> (opData:NSData?, key:String) -> AnyObject? {
 func >>> (opData:NSData?, index:Int) -> AnyObject?{
     if let data = opData{
         if let jsonArr = getJsonData(data) as? NSArray{
-            return jsonArr.objectAtIndex(index)
+            if (index>jsonArr.count-1 || index<0) {
+                println("JSONParser: data >>> index exceeded maximun array index.\nIndex:\(index)\n")
+                return nil
+            }else{
+                return jsonArr.objectAtIndex(index)
+            }
         }else{
             println("JSONParser: data >>> index did not detect array.\nIndex:\(index)\n")
             return nil
