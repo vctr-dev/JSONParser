@@ -48,6 +48,33 @@ func >>> (data:NSData, index:Int) -> AnyObject?{
     }
 }
 
+func >>> (opData:NSData?, key:String) -> AnyObject? {
+    if let data = opData{
+        if let jsonDict = getJsonData(data) as? NSDictionary{
+            return jsonDict.objectForKey(key)
+        }else{
+            println("JSONParser: data >>> key did not detect dictionary.\nKey:\(key)\n")
+            return nil
+        }
+    }else{
+        return nil
+    }
+}
+
+func >>> (opData:NSData?, index:Int) -> AnyObject?{
+    if let data = opData{
+        if let jsonArr = getJsonData(data) as? NSArray{
+            return jsonArr.objectAtIndex(index)
+        }else{
+            println("JSONParser: data >>> index did not detect array.\nIndex:\(index)\n")
+            return nil
+        }
+    }else{
+        return nil
+    }
+}
+
+
 func >>> (dictionary:AnyObject?, key:String) -> AnyObject?{
     if let dic:NSDictionary = dictionary as? NSDictionary{
         return dic.objectForKey(key)

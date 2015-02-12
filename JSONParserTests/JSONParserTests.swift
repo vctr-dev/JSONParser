@@ -21,16 +21,10 @@ class JSONParserTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testArr(){
+        let path = NSBundle.mainBundle().pathForResource("jsonDict", ofType:"json")
+        let data = NSData(contentsOfFile:path!)
+        let someKeyData: NSString? = (data >>> "Some Key") as? NSString
     }
     
 }
