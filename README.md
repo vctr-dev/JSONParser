@@ -26,7 +26,7 @@ To extract out the data,
 let path = NSBundle.mainBundle().pathForResource("jsonDict", ofType:"json")
 let data = NSData(contentsOfFile:path!)
 let someKeyData: NSString? = (data >>> "Some Key") as? NSString
-println(someKeyData) //This will print Optional("Hi there. I'm stored in some key")
+println(someKeyData) //This will print Optional(Hi there. I'm stored in some key)
 </code></pre>
 ### Features
 1. Use it to extract data from dictionary directly from NSData object (as shown in example above)
@@ -44,7 +44,7 @@ To extract out the data,
 let path = NSBundle.mainBundle().pathForResource("jsonArr", ofType:"json")
 let data = NSData(contentsOfFile:path!)
 let someKeyData: NSString? = (data >>> 1) as? NSString
-println(someKeyData) //This will print Optional("Item 1")
+println(someKeyData) //This will print Optional(Item 1)
 </code></pre>
 3. Use it to extract arrays or dictionaries from other arrays or dictionaries, in a chain
 
@@ -78,7 +78,7 @@ To get the first item of GlossSeeAlso:
 let path = NSBundle.mainBundle().pathForResource("jsonMix", ofType:"json")
 let data = NSData(contentsOfFile:path!)
 let someKeyData:AnyObject? = data >>> "glossary" >>> "GlossDiv" >>> "GlossList" >>> "GlossEntry" >>> "GlossDef" >>> "GlossSeeAlso" >>> 0
-println(someKeyData as? NSString) //This will print Optional("GML")
+println(someKeyData as? NSString) //This will print Optional(GML)
 </code></pre>
 4. Use it to extract data from NSDictionary or NSArray //This is not a main feature. But it can be used this way.
 <pre><code>
