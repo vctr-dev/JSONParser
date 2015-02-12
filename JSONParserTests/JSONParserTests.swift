@@ -44,6 +44,12 @@ class JSONParserTests: XCTestCase {
     func testMixedDataChain(){
         let path = NSBundle.mainBundle().pathForResource("jsonMix", ofType:"json")
         let data = NSData(contentsOfFile:path!)
+        let someKeyData:AnyObject? = data >>> "glossary" >>> "GlossDiv" >>> "GlossList" >>> "GlossEntry" >>> "GlossDef" >>> "GlossSeeAlso" >>> 0
+        let testString = "GML"
+        XCTAssert(someKeyData!.isEqualToString(testString) , "jsonMix did not extract the right data")
+        XCTAssertNil((data >>> "glossary" >>> "GlossDiv" >>> "GlossList" >>> "GlossMissing" >>> "GlossDef" >>> "GlossSeeAlso" >>> 0), "jsonMix should be nil when wrong key is passed in")
+        XCTAssertNil((data >>> "glossary" >>> "GlossDiv" >>> "GlossList" >>> "GlossEntry" >>> "GlossDef" >>> "GlossSeeAlso" >>> 4), "jsonMix should be nil when wrong number is passed in")
+        
         
     }
     
