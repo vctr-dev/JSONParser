@@ -1,5 +1,5 @@
 # JSONParser
-Swift helper for easy access to data in JSON data
+JSON parser in Swift for easy access to JSON data
 
 ## Introduction
 JSONParser is a simple light-weight parser that helps retrieve the data you want from a JSON data. This is achieve by applying syntactic sugar to on the Collection Objects extracted from the JSON data.
