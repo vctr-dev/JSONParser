@@ -13,6 +13,7 @@
 		4ECA8FCE1A8C6F39009E4F7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA8FCD1A8C6F39009E4F7E /* Images.xcassets */; };
 		4ECA8FD11A8C6F39009E4F7E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA8FCF1A8C6F39009E4F7E /* LaunchScreen.xib */; };
 		4ECA8FDD1A8C6F39009E4F7E /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA8FDC1A8C6F39009E4F7E /* JSONParserTests.swift */; };
+		4ECA8FE71A8C6F46009E4F7E /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA8FE61A8C6F46009E4F7E /* JSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4ECA8FD61A8C6F39009E4F7E /* JSONParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECA8FDB1A8C6F39009E4F7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECA8FDC1A8C6F39009E4F7E /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
+		4ECA8FE61A8C6F46009E4F7E /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				4ECA8FC61A8C6F39009E4F7E /* AppDelegate.swift */,
 				4ECA8FC81A8C6F39009E4F7E /* ViewController.swift */,
+				4ECA8FE61A8C6F46009E4F7E /* JSONParser.swift */,
 				4ECA8FCA1A8C6F39009E4F7E /* Main.storyboard */,
 				4ECA8FCD1A8C6F39009E4F7E /* Images.xcassets */,
 				4ECA8FCF1A8C6F39009E4F7E /* LaunchScreen.xib */,
@@ -214,6 +217,7 @@
 			files = (
 				4ECA8FC91A8C6F39009E4F7E /* ViewController.swift in Sources */,
 				4ECA8FC71A8C6F39009E4F7E /* AppDelegate.swift in Sources */,
+				4ECA8FE71A8C6F46009E4F7E /* JSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
