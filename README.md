@@ -80,10 +80,3 @@ let data = NSData(contentsOfFile:path!)
 let someKeyData:AnyObject? = data >>> "glossary" >>> "GlossDiv" >>> "GlossList" >>> "GlossEntry" >>> "GlossDef" >>> "GlossSeeAlso" >>> 0
 println(someKeyData as? NSString) //This will print Optional(GML)
 </code></pre>
-4. Use it to extract data from NSDictionary or NSArray //This is not a main feature. But it can be used this way.
-<pre><code>
-let arr = NSArray(array: ["Item 0","Item 1","Item 2"])
-println((arr >>> 0) as? NSString) // Optional("Item 0")
-let dict = NSDictionary(dictionary:["Some Key":"Hi there. I'm stored in some key"])
-println((dict >>> "Some Key") as NSString) //Optional("Hi there. I'm stored in some key")
-</code></pre>
